@@ -1,11 +1,12 @@
-from Jude_Assignment.Banking_Problem.Customer import Customer
+from Customer import Customer
 import random
 
-class Bank():
+class Bank(Customer):
     def __init__(self,customers,numberOfCustomers, bankName):
         self.__customers = customers
         self.__numberOfCustomer = int(numberOfCustomers)
         self.__bankName = bankName
+        Customer.__init__(self,'0','0','0','0')
 
     def addCustomer(self, f, l):
         while True:

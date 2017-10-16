@@ -1,12 +1,12 @@
-from Jude_Assignment.Banking_Problem.Account import Account
+from Account import Account
 import random
 class Customer(Account):
     def __init__(self, firstname, lastname, account, balance):
         self.__firstname = firstname
         self.__lastname = lastname
         self.__account = account
-        self.balance = balance
-        Account.__init__(self, self.balance)
+        self.__balance = balance
+        Account.__init__(self, self.__balance)
 
     def getFirstName(self):
         return self.__firstname
