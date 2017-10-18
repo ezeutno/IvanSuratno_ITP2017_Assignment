@@ -2,8 +2,8 @@ import random
 class Settings():
     def __init__(self):
         #Screen Settings
-        self.screen_width = 1200
-        self.screen_height = 700
+        self.screen_width = 500
+        self.screen_height = 500
         self.bg_color = (21,41,55)
 
         #Ship Settings
@@ -14,8 +14,8 @@ class Settings():
         self.moon_y = int(self.screen_height * 0.25)
 
         #Bullets Settings
-        self.bullet_width = 3
-        self.bullet_height = 5
+        self.bullet_width = 5
+        self.bullet_height = 8
         self.bullet_color = (178,34,34)
         self.bullets_allowed = 10
 
@@ -25,10 +25,11 @@ class Settings():
         self.min_star = 50
 
         #Alien Settings
-        self.fleet_drop_speed = 10
+        self.fleet_drop_speed = 5
 
         #Dynamic Speed Settings
         self.speedup_scale = 1.1
+        self.score_scale = 1.5
 
         self.initialize_dynamic_settings()
 
@@ -44,3 +45,4 @@ class Settings():
         self.ship_speed_factor *= self.speedup_scale
         self.bullet_speed_factor *= self.speedup_scale
         self.alien_speed_factor *= self.speedup_scale
+        self.alien_points = int(self.alien_points*self.score_scale)
