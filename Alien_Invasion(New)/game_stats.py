@@ -10,4 +10,6 @@ class GameStats():
     def reset_stats(self):
         self.ship_left = self.ai_settings.ship_limit
         self.score = 0
-        open('Data_base\\data.txt','w').write(str(self.high_score))
+
+    def update_highscore(self):
+        open('Data_base\\data.txt', 'w').write(str(self.high_score))

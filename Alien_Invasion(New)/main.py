@@ -8,7 +8,6 @@ from Ship import Ship
 from moon import Moon
 from earth import Earth
 from button import Button
-from music import Music
 import game_function as gf
 
 def main():
@@ -33,6 +32,7 @@ def main():
             ship.update()
             gf.update_bullets(ai_settings,screen,stats, sb,ship,aliens,bullets)
             gf.update_aliens(ai_settings,stats,sb, screen,ship,aliens,bullets)
+            stats.update_highscore()
         gf.update_screen(ai_settings,screen,stats,stars,sb,[moon,earth],[ship],play_button,aliens,bullets)
 
 main()
