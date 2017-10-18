@@ -6,6 +6,7 @@ from alien import Alien
 from random import randint
 from star import Star
 from time import sleep
+from music import Music
 
 #events
 def check_keydown_events(event,ai_settings,screen,ship,bullets):
@@ -82,7 +83,7 @@ def update_screen(ai_settings, screen,stats,stars,sb, bg_obj,fr_obj,play_button,
 
 #bullets
 def check_bullet_alien_colisions(ai_settings,screen,stats, sb,ship,aliens,bullets):
-    collisions = pygame.sprite.groupcollide(bullets, aliens, True, True)
+    collisions = pygame.sprite.groupcollide(bullets, aliens, False, True)
     if collisions:
         for aliens in collisions.values():
             stats.score += ai_settings.alien_points*len(aliens)
@@ -111,6 +112,7 @@ def update_bullets(ai_settings,screen,stats, sb,ship,aliens,bullets):
 def fire_bullet(ai_settings, screen,ship,bullets):
     if len(bullets) < ai_settings.bullets_allowed:
         new_bullets = Bullet(ai_settings, screen, ship)
+        Music('Data_base\\Laser1.mp3', 0.5,0.0).effect()
         bullets.add(new_bullets)
 
 #aliens
@@ -145,6 +147,7 @@ def update_aliens(ai_settings, stats, screen,sb, ship, aliens,bullets):
     check_fleet_edges(ai_settings,aliens)
     aliens.update()
     if pygame.sprite.spritecollideany(ship,aliens):
+        Music('Data_base\\explo.mp3', 0.5,0.2).effect()
         ship_hit(ai_settings, stats,sb, screen, ship, aliens,bullets)
     check_aliens_bottom(ai_settings, stats, screen,sb, ship, aliens,bullets)
 
@@ -163,6 +166,7 @@ def check_aliens_bottom(ai_settings, stats,sb, screen, ship, aliens,bullets):
     screen_rect = screen.get_rect()
     for alien in aliens.sprites():
         if alien.rect.bottom >= screen_rect.bottom:
+            Music('Data_base\\explo.mp3', 0.5,0.2).effect()
             ship_hit(ai_settings, stats,sb, screen, ship, aliens,bullets)
             break
 

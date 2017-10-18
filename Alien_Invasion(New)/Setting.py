@@ -14,8 +14,8 @@ class Settings():
         self.moon_y = int(self.screen_height * 0.25)
 
         #Bullets Settings
-        self.bullet_width = 5
-        self.bullet_height = 8
+        self.bullet_width = 500
+        self.bullet_height = 80
         self.bullet_color = (178,34,34)
         self.bullets_allowed = 10
 

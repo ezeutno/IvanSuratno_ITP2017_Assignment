@@ -8,6 +8,7 @@ from Ship import Ship
 from moon import Moon
 from earth import Earth
 from button import Button
+from music import Music
 import game_function as gf
 
 def main():
@@ -26,7 +27,6 @@ def main():
     aliens = Group()
     gf.create_fleet(ai_settings,screen,ship,aliens)
     gf.create_multilayer_star(ai_settings, screen, stars)
-
     while True:
         gf.check_events(ai_settings,screen,stats,sb,play_button,ship,aliens,bullets)
         if stats.game_active:
